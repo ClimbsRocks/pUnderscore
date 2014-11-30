@@ -63,6 +63,16 @@ _.find = function(list, predicate) {
   return undefined;
 }
 
+_.filter = function(list,predicate) {
+  var results = [];
+  for (var i = 0; i < list.length; i++) {
+    if(predicate(list[i],i,list)) results.push(list[i]);
+  }
+  return results;
+}
+
+
+
 
 
 //Arrays
