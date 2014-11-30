@@ -115,6 +115,14 @@ _.some = function(list, predicate) {
   return false;
 }
 
+_.contains = function(list,value) {
+  var result = false;
+  _.each(list,function(num) {
+    if (num === value) result = true;
+  });
+  return result;
+}
+
 
 
 
