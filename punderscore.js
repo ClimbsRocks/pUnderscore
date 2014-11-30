@@ -245,7 +245,19 @@ _.zip = function() {
 }
 
 
-
+_.object = function(list, values) {
+  var results = {};
+  if(values) {
+    for (var i = 0; i < list.length; i++) {
+      results[list[i]] = values[i];
+    }
+  } else {
+    for (var j = 0; j < list.length; j++) {
+      results[list[j][0]] = list[j][1];
+    }
+  }
+  return results;
+}
 
 
 
