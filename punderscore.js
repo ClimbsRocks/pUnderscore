@@ -160,7 +160,7 @@ pflatten = function(array) {
   return results;
 }
 
-
+//could probably be refactored to use filter or every
 _.without = function(array) {
   var results = [];
   for (var i = 0; i < array.length; i++) {
@@ -175,9 +175,23 @@ _.without = function(array) {
   return results;
 }
 
+//currently this implementation checks if the number is present in at least two of the arrays. this definition does not strictly match any of the underscore functions
+_.looseIntersection = function() {
+  var nums = _.flatten(arguments);
+  var results = [];
+  for (var i = 0; i < nums.length-1; i++) {
+    for (var j = i + 1; j < nums.length; j++) {
+      if (nums[i] === nums[j]) {
+        results.push(nums[i]);
+      }
+    }
+  }
+  return _.uniq(results);
+}
 
-
-
+_.union = function() {
+  return _.uniq(_.flatten(arguments));
+}
 
 
 
