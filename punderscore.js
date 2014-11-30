@@ -202,13 +202,25 @@ _.intersection = function() {
     for(var j = 0; j < results.length; j++) {
        if(_.contains(arguments[i],results[j]) === false) {
          results.splice(j,1);
+         j = j-1;
        }
     }
   }
   return results;
 }
 
-
+_.difference = function(list) {
+  var results = list;
+  for (var i = 1; i < arguments.length; i++) {
+    for (var j = 0; j < results.length; j++) {
+      if (_.contains(arguments[i],results[j]) === true) {
+        results.splice(j,1);
+        j = j-1;
+      }
+    }
+  }
+  return results;
+}
 
 
 
