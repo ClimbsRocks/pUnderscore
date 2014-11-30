@@ -285,8 +285,26 @@ _.sortedIndex = function(list, value) {
   return -1;
 }
 
+//does not support negative numbers yet. 
+_.range = function(start,stop,step) {
+  var results = [];
+  if(arguments.length === 1) {
+    stop = start;
+    step = 1;
+    start = 0;
+  } else if (arguments.length === 2) {
+    if (stop < start) {
+      step = stop;
+      stop = start;
+      start = 0;
+    } else step = 1;
+  }
 
-
+  for (var i = start; i < stop; i += step) {
+    results.push(i);
+  }
+  return results;
+}
 
 
 
