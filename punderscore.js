@@ -42,6 +42,20 @@ _.reduce = function(list,iteratee,memo) {
   return memo;
 }
 
+_.reduceRight = function(list,iteratee,memo) {
+  if(arguments.length < 3) memo = list.shift();
+  if(Array.isArray(list)) {
+    for (var i = list.length-1; i >= 0; i--) {
+      memo =iteratee(memo,list[i],i,list);
+    }
+  } else if (typeof list === 'object') {
+    for(var key in list) {
+      memo = iteratee(memo,list[key],key,list);
+    }
+  }
+  return memo;
+}
+
 
 
 //Arrays
