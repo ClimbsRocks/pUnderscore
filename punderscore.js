@@ -222,7 +222,15 @@ _.difference = function(list) {
   return results;
 }
 
-
+_.uniq = function(array) {
+  var results = [];
+  for (var i = 0; i < array.length; i++) {
+    if(_.contains(results,array[i]) === false) {
+      results.push(array[i]);
+    }
+  }
+  return results;
+}
 
 
 
