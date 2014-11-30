@@ -1,3 +1,21 @@
+//Collections
+
+_.each = function(list, iteratee) {
+  if(Array.isArray(list)) {
+    for (var i = 0; i < list.length; i++) {
+      iteratee(list[i],i,list);
+    }
+  } else if (typeof list === 'object') {
+    for (var key in list) {
+      iteratee(list[key],key,list);
+    }
+  }
+}
+
+
+
+
+
 //Arrays
 
 //First
