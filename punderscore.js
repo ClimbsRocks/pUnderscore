@@ -232,7 +232,17 @@ _.uniq = function(array) {
   return results;
 }
 
-
+_.zip = function() {
+  var results = [];
+  for (var i = 0; i < arguments[0].length; i++) {
+    var innerResult = [];
+    for (var j = 0; j < arguments.length; j++) {
+      innerResult.push(arguments[j][i]);
+    }
+    results.push(innerResult);
+  }
+  return results;
+}
 
 
 
