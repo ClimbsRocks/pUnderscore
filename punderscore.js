@@ -193,7 +193,20 @@ _.union = function() {
   return _.uniq(_.flatten(arguments));
 }
 
-
+_.intersection = function() {
+  //start the results array with the values of the first input array. it can never grow from here, only shrink
+  var results = arguments[0];
+  //iterate through each following array. check whether all elements of the results array are still present
+  for (var i = 1; i < arguments.length; i++) {
+    //within each of the arguments arrays, check to make sure they contain everything in the results array
+    for(var j = 0; j < results.length; j++) {
+       if(_.contains(arguments[i],results[j]) === false) {
+         results.splice(j,1);
+       }
+    }
+  }
+  return results;
+}
 
 
 
