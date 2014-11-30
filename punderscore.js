@@ -275,7 +275,15 @@ _.lastIndexOf = function(array,value) {
 }
 
 
-
+_.sortedIndex = function(list, value) {
+  var direction = (list[1] - list[0] > 0) ? 'asc' : 'desc';
+  for (var i = 0; i < list.length; i++) {
+    if((direction === 'asc' && list[i] >= value) || (direction === 'desc' && list[i] <= value)) {
+      return i;
+    }
+  }
+  return -1;
+}
 
 
 
