@@ -72,7 +72,17 @@ _.filter = function(list,predicate) {
 }
 
 
-
+_.where = function(list, properties) {
+  var results = [];
+  for (var i = 0; i < list.length; i++) {
+    var isEqual = true;
+    for(var key in properties) {
+      if(list[i][key] !== properties[key]) isEqual = false;
+    }
+    if(isEqual) results.push(list[i]);
+  }
+  return results;
+}
 
 
 //Arrays
