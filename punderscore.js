@@ -161,7 +161,19 @@ pflatten = function(array) {
 }
 
 
-
+_.without = function(array) {
+  var results = [];
+  for (var i = 0; i < array.length; i++) {
+    var isUnique = true;
+    for (var j = 1; j < arguments.length; j++) {
+      if(arguments[j] === array[i]) {
+        isUnique = false;
+      }
+    }
+    if(isUnique) results.push(array[i]);
+  }
+  return results;
+}
 
 
 
