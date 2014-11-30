@@ -84,6 +84,33 @@ _.where = function(list, properties) {
   return results;
 }
 
+_.findWhere = function(list, properties) {
+  for (var i = 0; i < list.length; i++) {
+    var isEqual = true;
+    for (var key in list) {
+      if(list[i][key] !== properties[key]) isEqual = false;
+    }
+    if(isEqual) return list[i];
+  }
+  return undefined;
+}
+
+_.reject = function(list, predicate) {
+  return _.filter(list,function(item) {
+    if(!(predicate(item))) return true;
+  });
+}
+
+_.every = function(list,predicate) {
+  return _.reduce(list,function(memo,value,index,list) {
+    if(predicate(value) && memo) return true;
+    else return false;
+  },true);
+}
+
+
+
+
 
 //Arrays
 
