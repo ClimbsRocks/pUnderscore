@@ -259,6 +259,33 @@ _.object = function(list, values) {
   return results;
 }
 
+_.indexOf = function(array, value) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === value) return i;
+  }
+  return -1;
+}
+
+
+_.lastIndexOf = function(array,value) {
+  for (var i = array.length-1; i >=0; i--) {
+    if(array[i] === value) return i;
+  }
+  return -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
