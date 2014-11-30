@@ -12,7 +12,19 @@ _.each = function(list, iteratee) {
   }
 }
 
-
+_.map = function(list, iteratee) {
+  var results = [];
+  if(Array.isArray(list)) {
+    for(var i = 0; i < list.length; i++) {
+      results.push(iteratee(list[i],i,list));
+    }
+  } else if (typeof list === 'object') {
+    for(var key in list) {
+      results.push(iteratee(list[key],key,list));
+    }
+  }
+  return results;
+}
 
 
 
