@@ -123,6 +123,18 @@ _.contains = function(list,value) {
   return result;
 }
 
+//skipping invoke to avoid using call and apply
+_.invoke = function(list, methodName) {
+  _.each(list,methodName)
+}
+
+_.pluck = function(list, propertyName) {
+  return _.map(list, function(value) {
+    return value[propertyName];
+  });
+}
+
+
 
 
 
