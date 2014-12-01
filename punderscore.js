@@ -134,7 +134,19 @@ _.pluck = function(list, propertyName) {
   });
 }
 
-
+_.max = function(list, iteratee) {
+  var max=list[0];
+  if(iteratee) {
+    _.each(list,function(item) {
+      if(iteratee(item) > iteratee(max)) max = item;
+    })
+  } else {
+    for (var i = 0; i < list.length; i++) {
+      if(list[i] > max) max = list[i];
+    }
+  }
+  return max;
+}
 
 
 
