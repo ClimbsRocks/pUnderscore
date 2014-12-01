@@ -149,6 +149,19 @@ _.max = function(list, iteratee) {
 }
 
 
+_.min = function(list, iteratee) {
+  var min=list[0];
+  if(iteratee) {
+    _.each(list,function(item) {
+      if(iteratee(item) < iteratee(min)) min = item;
+    })
+  } else {
+    for (var i = 0; i < list.length; i++) {
+      if(list[i] < min) min = list[i];
+    }
+  }
+  return min;
+}
 
 
 
