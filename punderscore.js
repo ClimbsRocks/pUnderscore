@@ -599,10 +599,14 @@ _.range = function(start,stop,step) {
 }
 
 
+//Objects
 
-
-
-
+//when testing on the underscore site, this creates an infinite loop, since keys relies on map, and map relies on keys
+_.keys = function(object) {
+  return _.map(object,function(value,key,list) {
+    return key;
+  });
+}
 
 
 
