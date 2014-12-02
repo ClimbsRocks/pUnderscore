@@ -608,6 +608,11 @@ _.keys = function(object) {
   });
 }
 
+_.values = function(obj) {
+  return _.map(obj, function(value) {
+    return value;
+  });
+}
 
 
 
