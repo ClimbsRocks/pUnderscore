@@ -193,12 +193,17 @@ _.sortBy = function(list, iteratee) {
       //find the minimum within this list of values that we're sorting by
       var position = _.indexOf(iterateedList,_.min(iterateedList));
       iterateedList.splice(position,1);
-      results.push(list.splice(position,1));
+      results.push(list.splice(position,1)[0]);
     }
 
   } else if (typeof iteratee === 'function' ) {
     console.log('iteratee is a function');
-    
+    for(var i = 0; i < listLength; i++) {
+      results.push(list.splice(_.indexOf(list,_.min(list,function(item) {
+        return iteratee(item);
+      })),1)[0]);
+    }
+
   }
   return results;
 }
