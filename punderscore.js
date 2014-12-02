@@ -231,6 +231,24 @@ _.groupBy = function(list, iteratee) {
   return results;
 }
 
+_.indexBy = function(list, iteratee) {
+  var results = {};
+  for(var i = 0; i < list.length; i++) {
+    var currentKey;
+    if(typeof iteratee === 'string' ) {
+      currentKey = list[i][iteratee];
+    } else if (typeof iteratee === 'function') {
+      currentKey = iteratee(list[i]);
+    }
+    results[currentKey] = list[i];
+  }
+  return results;
+}
+
+
+
+
+
 
 
 //Arrays
