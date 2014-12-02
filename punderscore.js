@@ -277,6 +277,9 @@ _.toArray = function(list) {
   return results;
 }
 
+_.size = function(list) {
+  return list.length === +list.length ? list.length : _.keys(list).length;
+}
 
 
 
