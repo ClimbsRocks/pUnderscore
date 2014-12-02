@@ -269,6 +269,15 @@ _.sample = function(list, n) {
   else return randomList[0];
 }
 
+_.toArray = function(list) {
+  var results = [];
+  for (var i =0; i < list.length; i++) {
+    results.push(list[i]);
+  }
+  return results;
+}
+
+
 
 
 
