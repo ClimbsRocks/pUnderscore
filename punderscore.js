@@ -245,6 +245,13 @@ _.indexBy = function(list, iteratee) {
   return results;
 }
 
+_.countBy = function(list, iteratee) {
+  var groupedArray = _.groupBy(list,iteratee);
+  for (var key in groupedArray) {
+    groupedArray[key] = groupedArray[key].length;
+  }
+  return groupedArray;
+}
 
 
 
