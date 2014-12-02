@@ -203,14 +203,33 @@ _.sortBy = function(list, iteratee) {
         return iteratee(item);
       })),1)[0]);
     }
-
   }
   return results;
 }
 //test: _.sortBy([[1,2,3],[1,2],[1],[1,2,3,4,5]],'length');
 
 
-
+_.groupBy = function(list, iteratee) {
+  var results = {};
+  if(typeof iteratee === 'string') {
+    for(var i = 0; i < list.length; i++) {
+      var currentKey = list[i][iteratee];
+      if(results[currentKey]) {
+        results[currentKey].push(list[i]);
+      } else {
+        results[currentKey] = [list[i]];
+      }
+    }
+  } else if (typeof iteratee === 'function' ) {
+    for (var i = 0; i < list.length; i++) {
+      var currentKey = iteratee(list[i]);
+      if(results[currentKey]) {
+        results[currentKey].push(list[i]);
+      } else results[currentKey] = [list[i]];
+    }
+  }
+  return results;
+}
 
 
 
