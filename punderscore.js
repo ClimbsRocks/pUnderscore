@@ -172,7 +172,7 @@ _.sortBy = function(list, iteratee) {
     for(var i = 0; i < listLength; i++) {
       console.log('total results: ' + list.splice(_.indexOf(_.min(list, function(input) {return input[iteratee];})),1));
       console.log('min: ' + _.min(list, function(input) {return input[iteratee];}));
-      results.push(list.splice(_.indexOf(_.min(list, function(input) {return input[iteratee];})),1));
+      results.push(list.splice(_.indexOf(list, _.min(list, function(input) {return input[iteratee];})),1));
     }
   } else if (typeof iteratee == 'function') {
     return 'this is a solemn function.';
@@ -182,20 +182,27 @@ _.sortBy = function(list, iteratee) {
 
 _.sortBy = function(list, iteratee) {
   var results = [];
+  var listLength = list.length;
   if(typeof iteratee === 'string') {
-    console.log('iteratee is a string');
     //create a new list that has passed through the iteratee and is thus the numbers we want to sort by
     var iterateedList = _.map(list,function(item) {
       return item[iteratee];
     });
-    return _.indexOf(iterateedList,_.min(iterateedList));
+    //this loops the number of times that we have items, it does not actually iterate through the list
+    for(var i = 0; i < listLength; i++) {
+      //find the minimum within this list of values that we're sorting by
+      var position = _.indexOf(iterateedList,_.min(iterateedList));
+      iterateedList.splice(position,1);
+      results.push(list.splice(position,1));
+    }
 
   } else if (typeof iteratee === 'function' ) {
     console.log('iteratee is a function');
+    
   }
   return results;
 }
-
+//test: _.sortBy([[1,2,3],[1,2],[1],[1,2,3,4,5]],'length');
 
 
 
