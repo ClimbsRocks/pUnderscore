@@ -263,6 +263,12 @@ _.shuffle = function(list) {
   return results;
 }
 
+_.sample = function(list, n) {
+  var randomList = _.shuffle(list);
+  if(n) return randomList.slice(0,n)
+  else return randomList[0];
+}
+
 
 
 
