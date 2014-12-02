@@ -253,6 +253,15 @@ _.countBy = function(list, iteratee) {
   return groupedArray;
 }
 
+_.shuffle = function(list) {
+  var results = [];
+  var listLength = list.length;
+  for (var i = 0; i < listLength; i++) {
+    var randomNumber = Math.floor(Math.random()*list.length);
+    results.push(list.splice(randomNumber,1)[0]);
+  }
+  return results;
+}
 
 
 
