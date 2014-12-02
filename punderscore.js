@@ -281,6 +281,11 @@ _.size = function(list) {
   return list.length === +list.length ? list.length : _.keys(list).length;
 }
 
+_.partition = function(array,predicate) {
+  var results1 = _.filter(array,predicate);
+  var results2 = _.filter(array,function(item) {return !predicate(item);});
+  return[results1,results2];
+}
 
 
 
