@@ -163,6 +163,42 @@ _.min = function(list, iteratee) {
   return min;
 }
 
+//This implementation didn't work. 
+_.sortBy = function(list, iteratee) {
+  var results = [];
+  var listLength = list.length;
+  if(typeof iteratee === 'string') {
+    console.log('entered a string');
+    for(var i = 0; i < listLength; i++) {
+      console.log('total results: ' + list.splice(_.indexOf(_.min(list, function(input) {return input[iteratee];})),1));
+      console.log('min: ' + _.min(list, function(input) {return input[iteratee];}));
+      results.push(list.splice(_.indexOf(_.min(list, function(input) {return input[iteratee];})),1));
+    }
+  } else if (typeof iteratee == 'function') {
+    return 'this is a solemn function.';
+  }
+  return results;
+}
+
+_.sortBy = function(list, iteratee) {
+  var results = [];
+  if(typeof iteratee === 'string') {
+    console.log('iteratee is a string');
+    //create a new list that has passed through the iteratee and is thus the numbers we want to sort by
+    var iterateedList = _.map(list,function(item) {
+      return item[iteratee];
+    });
+    return _.indexOf(iterateedList,_.min(iterateedList));
+
+  } else if (typeof iteratee === 'function' ) {
+    console.log('iteratee is a function');
+  }
+  return results;
+}
+
+
+
+
 
 
 
