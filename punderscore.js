@@ -624,6 +624,14 @@ _.pairs = function(object) {
 }
 
 
+_.invert = function(object) {
+  var results = {};
+  _.each(object, function(value, key) {
+    results[value] = key;
+  });
+  return results;
+}
+
 
 
 
