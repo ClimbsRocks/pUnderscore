@@ -711,9 +711,14 @@ _.defaults = function(object, defaults) {
 }
 
 
+_.clone = function(object) {
+  return Array.isArray(object) ? object.slice() : _.extend({},object);
+}
 
-
-
+_.tap = function(object, interceptor) {
+  interceptor(object);
+  return object;
+}
 
 
 
