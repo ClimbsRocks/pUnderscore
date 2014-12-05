@@ -720,6 +720,16 @@ _.tap = function(object, interceptor) {
   return object;
 }
 
+_.has = function(object, key) {
+  return _.contains(_.keys(object),key);
+}
+
+_.property = function(key) {
+  return function(object) {
+    return object[key];
+  }
+}
+
 
 
 
