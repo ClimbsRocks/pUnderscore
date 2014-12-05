@@ -706,7 +706,9 @@ _.omit = function(object, input) {
   return results;
 }
 
-
+_.defaults = function(object, defaults) {
+  return _.extend(object,_.omit(defaults, _.keys(object)));
+}
 
 
 
