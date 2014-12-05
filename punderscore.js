@@ -633,7 +633,15 @@ _.invert = function(object) {
 }
 
 
-
+_.functions = function(object) {
+  var results = [];
+  for(var key in object) {
+    if(typeof object[key] === 'function') {
+      results.push(key);
+    }
+  }
+  return results.sort();
+}
 
 
 
