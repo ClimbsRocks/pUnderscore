@@ -614,7 +614,14 @@ _.values = function(obj) {
   });
 }
 
-
+_.pairs = function(object) {
+  return _.map(object, function(value, key) {
+    var results = [];
+    results.push(key);
+    results.push(value);
+    return results;
+  });
+}
 
 
 
