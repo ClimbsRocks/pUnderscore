@@ -653,7 +653,27 @@ _.extend = function(destination) {
   return destination;
 }
 
+_.pick = function(object, input) {
+  var isFunc = _.isFunction(input);
+  var results = {};
 
+  if(isFunc) {
+    for(var keyIt in object) {
+      if(input(value,keyIt,object)) {
+        results[keyIt] = object[keyIt];
+      }
+    }
+  } else if(Array.isArray(input)) {
+    for(var i = 0; i < input.length; i++) {
+      results[input[i]] = object[input[i]];
+    }
+  } else {
+    for (var i = 1; i < arguments.length; i++) {
+      results[arguments[i]] = object[arguments[i]];
+    }
+  }
+  return results;
+}
 
 
 
