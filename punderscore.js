@@ -644,7 +644,14 @@ _.functions = function(object) {
 }
 
 
-
+_.extend = function(destination) {
+  for(var i = 1; i < arguments.length; i++) {
+    for(var key in arguments[i]) {
+      destination[key] = arguments[i][key];
+    }
+  }
+  return destination;
+}
 
 
 
