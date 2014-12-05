@@ -675,6 +675,47 @@ _.pick = function(object, input) {
   return results;
 }
 
+_.omit = function(object, input) {
+  var isFunc = _.isFunction(input);
+  var results = {};
+  if(isFunc) {
+    for(var key in object) {
+      if(input(value,key,object) === false) {
+        results[key] = object[key];
+      }
+    }
+  } else if (Array.isArray(input)) {
+    for(var key in object) {
+      var include = true;
+      for(var i = 0; i < input.length; i++) {
+        if(input[i] === key) {
+          include = false;
+        }
+      }
+      if(include) results[key] = object[key];    
+    }
+  } else {
+    for (var key in object) {
+      var include = true;
+      for (var i = 1; i < arguments.length; i++) {
+        if(arguments[i] === key) include = false;
+      }
+      if(include) results[key] = object[key];
+    }
+  }
+  return results;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
