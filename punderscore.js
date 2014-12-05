@@ -731,8 +731,14 @@ _.property = function(key) {
 }
 
 
-
-
+_.matches = function(attrs) {
+  return function(obj) {
+    for(var key in attrs) {
+      if(obj[key] !== attrs[key]) return false;
+    }
+    return true;
+  }
+}
 
 
 
